@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: #c57c7c;
+        }
+        #container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            position: relative;
+            animation: frame-animation 10s infinite;
+        }
+
+        @keyframes frame-animation {
+            0% {
+                box-shadow: 0 0 0 0px #f1f1f1;
+            }
+            50% {
+                box-shadow: 0 0 0 10px #f1f1f1;
+            }
+            100% {
+                box-shadow: 0 0 0 0px #f1f1f1;
+            }
+        }
+
+        
+        h1 {
+            text-align: center;
+            color: #60a25b;
+        }
+        label, input, select, textarea {
+            color: #6b0af2;
+        }
+        
+        #logo {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            width: 49%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .radio-group {
+            margin-top: 5px;
+        }
+        
+        .radio-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        #password-error {
+            color: rgb(21, 0, 255);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Registration Form</h1>
+        <img src="logo.png" id="logo" alt="Logo">
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for ="confirm-password">confirm password</label>
+            <input type ="password" id ="confirm-password" name ="confirm-password" required>
+            <div id="password-error"></div>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+            
+            <label for="gender">Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+            
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+            
+            <label for="avatar">Avatar:</label>
+            <input type="file" id="avatar" name="avatar">
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var passwordError = document.getElementById("password-error");
+            
+            if (password !== confirmPassword) {
+                passwordError.textContent = "Passwords do not match.";
+                return false;
+            } else {
+                passwordError.textContent = ""; // Clear the error message
+            }
+            
+            return true;
+        }
+    </script>
+    </body>
+    </html>
+    
+    
+    
+    
+    
+    
+    
